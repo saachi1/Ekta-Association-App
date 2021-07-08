@@ -27,7 +27,6 @@ class _VehiclesScreenState extends State<VehiclesScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(icon: IconButton(onPressed: () {}, icon: Icon(Icons.menu)), onPressed: () {  },),
           title: Text('Vehicles'),
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.search)),
