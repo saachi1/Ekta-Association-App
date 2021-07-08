@@ -1,6 +1,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:society_app/screens/camera_screen.dart';
 import 'vehicles_screen.dart';
 
 enum MobileVerificationState {
@@ -35,11 +36,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
     try {
       final authCredential = await _auth.signInWithCredential(phoneAuthCredential);
-      
+
       setState(() {
         showLoading = false;
       });
-      
+
       if (authCredential.user != null) {
         Navigator.push(context, MaterialPageRoute(builder: (context) => VehiclesScreen()));
       }
@@ -67,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
         SizedBox(
           height: 16,
         ),
+        ElevatedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) {return VehiclesScreen();}));}, child: Text('Click Me')),
         FlatButton(
           onPressed: () async {
 
@@ -143,13 +145,13 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
-      body: Container(
-        padding: EdgeInsets.all(16),
-        child: showLoading ? Center(child: CircularProgressIndicator(),) : currentState == MobileVerificationState.SHOW_MOBILE_FORM_STATE ?
-        getMobileFormWidget(context):
-        getOtpFormWidget(context),
-      )
+        key: _scaffoldKey,
+        body: Container(
+          padding: EdgeInsets.all(16),
+          child: showLoading ? Center(child: CircularProgressIndicator(),) : currentState == MobileVerificationState.SHOW_MOBILE_FORM_STATE ?
+          getMobileFormWidget(context):
+          getOtpFormWidget(context),
+        )
     );
   }
 }
