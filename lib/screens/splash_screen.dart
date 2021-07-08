@@ -21,8 +21,14 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Image(image: NetworkImage('https://raw.githubusercontent.com/getparking/citizen_pwa/master/images/gplogo.png?token=APZEPJ4KQSGVBNBM6UC2SQTA4SGD2'),),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image(image: AssetImage('assets/images/logo.png'),),
+          SizedBox(height: 30,),
+          Text('Created by Saachi Naik', style: TextStyle(fontSize: 20),)
+        ],
       ),
     );
   }

@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:society_app/widgets/common_drawer.dart';
 import 'login_screen.dart';
 import 'camera_screen.dart';
 import 'violation_screen.dart';
-
+import 'package:society_app/widgets/common_button.dart';
 
 class VehiclesScreen extends StatefulWidget {
 
@@ -17,7 +18,6 @@ class _VehiclesScreenState extends State<VehiclesScreen> {
 
 
 
-  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -112,38 +112,10 @@ class _VehiclesScreenState extends State<VehiclesScreen> {
 
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-
-          child: Icon(Icons.logout),
-          onPressed: () async {
-            await _auth.signOut();
-            Navigator.push(context, MaterialPageRoute(builder: (context) { return LoginScreen();}));
-          },
-        ),
+        drawer: CommonDrawer(),
       ),
     );
   }
 }
 
-class CommonButton extends StatelessWidget {
-
-  final Color colour;
-  final String buttonText;
-
-  CommonButton({required this.buttonText, required this.colour});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          primary: colour,
-          padding: EdgeInsets.fromLTRB(70, 20, 70, 20),
-        ),
-        child: Text(buttonText, style: TextStyle(color: Colors.white),),
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {return CameraScreen();}));
-        }
-    );
-  }
-}
 

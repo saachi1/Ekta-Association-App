@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:society_app/screens/camera_screen.dart';
 import 'package:society_app/screens/vehicles_screen.dart';
-
+import 'package:society_app/widgets/common_button.dart';
+import 'package:society_app/widgets/common_drawer.dart';
 
 
 class ViolationScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class _ViolationScreenState extends State<ViolationScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Violation Screen'),
+          title: Text('Violation'),
         ),
         body: Column(
           children: [
@@ -90,16 +91,13 @@ class _ViolationScreenState extends State<ViolationScreen> {
 
                 ]
             ),
+            SizedBox(height: 80,),
+            CommonButton(buttonText: 'REPORT', colour: Colors.red)
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {return CameraScreen();}));
-          },
-          child: Icon(Icons.report_problem,),
-          backgroundColor: Colors.red,
-        ),
+        drawer: CommonDrawer(),
       ),
+
     );
   }
 }

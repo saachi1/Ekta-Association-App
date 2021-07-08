@@ -26,6 +26,7 @@ class _CameraScreenState extends State<CameraScreen> {
   }
 
   void getNumberPlate() async {
+    Image.file(_image!);
 
   }
 
@@ -46,7 +47,9 @@ class _CameraScreenState extends State<CameraScreen> {
         child: Icon(Icons.camera_alt),
       ) 
       : FloatingActionButton(
-        onPressed: () {  },
+        onPressed: () {
+          getNumberPlate();
+        },
         backgroundColor: Colors.blue,
         child: Icon(Icons.check),
       )
