@@ -1,6 +1,8 @@
+
 import 'package:society_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:society_app/screens/vehicles_screen.dart';
 
 class CommonDrawer extends StatelessWidget {
 
@@ -24,13 +26,21 @@ class CommonDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: Icon(Icons.home),
+            title: Text('Home'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) { return VehiclesScreen();}));
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.logout),
             title: Text('Logout'),
             onTap: () async {
     await _auth.signOut();
     Navigator.push(context, MaterialPageRoute(builder: (context) { return LoginScreen();}));
     },
-          )
+          ),
+
         ],
       ),
     );

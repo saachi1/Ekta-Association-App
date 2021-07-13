@@ -1,4 +1,5 @@
 
+import 'package:camera/camera.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:society_app/screens/camera_screen.dart';
@@ -10,6 +11,8 @@ enum MobileVerificationState {
 }
 
 class LoginScreen extends StatefulWidget {
+
+
 
   static String id = 'login_screen';
 
