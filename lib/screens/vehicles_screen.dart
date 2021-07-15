@@ -5,8 +5,12 @@ import 'login_screen.dart';
 import 'camera_screen.dart';
 import 'violation_screen.dart';
 import 'package:society_app/widgets/common_button.dart';
+import 'package:society_app/screen_config.dart';
+import 'package:page_transition/page_transition.dart';
+
 
 class VehiclesScreen extends StatefulWidget {
+
 
   static String id = 'vehicles_screen';
 
@@ -17,13 +21,21 @@ class VehiclesScreen extends StatefulWidget {
 class _VehiclesScreenState extends State<VehiclesScreen> {
 
 
-
-
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    print('///////START/////////');
+    print(SizeConfig.blockSizeHorizontal);
+    print(SizeConfig.blockSizeVertical);
+    print(SizeConfig.safeBlockHorizontal);
+    print(SizeConfig.safeBlockVertical);
+    print(SizeConfig.screenHeight);
+    print(SizeConfig.screenWidth);
+    print('///////END/////////');
+
     return GestureDetector(
       onHorizontalDragEnd: (DragEndDetails details) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {return ViolationScreen();}));
+        Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: ViolationScreen()));
       },
       child: Scaffold(
         appBar: AppBar(
@@ -100,13 +112,15 @@ class _VehiclesScreenState extends State<VehiclesScreen> {
             SizedBox(
               height: 80,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CommonButton(buttonText: 'IN', colour: Colors.green,),
-                SizedBox(width: 50,),
-                CommonButton(buttonText: 'OUT', colour: Colors.red,),
-              ],
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CommonButton(buttonText: 'IN', colour: Colors.green,),
+                  SizedBox(width: 40,),
+                  CommonButton(buttonText: 'OUT', colour: Colors.red,),
+                ],
+              ),
             )
 
           ],

@@ -3,7 +3,7 @@ import 'package:society_app/screens/camera_screen.dart';
 import 'package:society_app/screens/vehicles_screen.dart';
 import 'package:society_app/widgets/common_button.dart';
 import 'package:society_app/widgets/common_drawer.dart';
-
+import 'package:page_transition/page_transition.dart';
 
 class ViolationScreen extends StatefulWidget {
 
@@ -20,7 +20,7 @@ class _ViolationScreenState extends State<ViolationScreen> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onHorizontalDragStart: (DragStartDetails details) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {return VehiclesScreen();}));
+        Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, child: VehiclesScreen()));
       },
       child: Scaffold(
         appBar: AppBar(

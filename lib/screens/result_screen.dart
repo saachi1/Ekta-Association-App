@@ -11,10 +11,10 @@ import 'package:society_app/widgets/common_button.dart';
 
 class ResultScreen extends StatelessWidget {
 
-  // File? image;
+   // File image;
   // String? resultText;
   // Function? newPhoto;
-  // ResultScreen(this.image, this.resultText, this.newPhoto);
+  // ResultScreen(this.image);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ResultScreen extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 70,),
-          // Image.file(image!),
+          // Image.file(image),
           SizedBox(height: 50,),
           // Text(resultText!, style: TextStyle(fontSize: 40),),
           SizedBox(height: 50,),
