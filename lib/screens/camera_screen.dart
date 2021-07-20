@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/services.dart';
-import 'package:npgroups/npgroups.dart';
+// import 'package:npgroups/npgroups.dart';
 import 'package:society_app/screens/result_screen.dart';
 import 'package:camera/camera.dart';
 import 'dart:async';
@@ -111,7 +111,7 @@ class _CameraScreenState extends State<CameraScreen> {
 
 
 
-  late Npgroups _npgroups;
+  // late Npgroups _npgroups;
 
 
   static const MethodChannel _channel = const MethodChannel('tflite');
@@ -131,30 +131,30 @@ class _CameraScreenState extends State<CameraScreen> {
 
 
 
-  Future<void> initPlatformState() async {
-    print('START TIME NPGROUPS');
-
-    print(DateTime.now());
-
-    _npgroups = Npgroups(listenToNumplate);
-    await _npgroups.startListening();
-      for (String string in mylist) {
-        try{
-          _npgroups.processNumberplate(string);
-        }
-        on PlatformException {
-          _numberplate = 'Error';
-        }
-      if (!mounted) return;
-    }
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ResultScreen(resultText: _numberplate)));
-
-
-
-    print(DateTime.now());
-    print('END TIME NPGROUPS');
-
-  }
+  // Future<void> initPlatformState() async {
+  //   print('START TIME NPGROUPS');
+  //
+  //   print(DateTime.now());
+  //
+  //   _npgroups = Npgroups(listenToNumplate);
+  //   await _npgroups.startListening();
+  //     for (String string in mylist) {
+  //       try{
+  //         _npgroups.processNumberplate(string);
+  //       }
+  //       on PlatformException {
+  //         _numberplate = 'Error';
+  //       }
+  //     if (!mounted) return;
+  //   }
+  //       Navigator.push(context, MaterialPageRoute(builder: (context) => ResultScreen(resultText: _numberplate)));
+  //
+  //
+  //
+  //   print(DateTime.now());
+  //   print('END TIME NPGROUPS');
+  //
+  // }
 
   @override
   void dispose() {
