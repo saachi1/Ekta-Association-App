@@ -7,6 +7,7 @@ import 'package:page_transition/page_transition.dart';
 
 class ViolationScreen extends StatefulWidget {
 
+
   static String id = 'violation_screen';
 
   @override
@@ -17,7 +18,11 @@ class _ViolationScreenState extends State<ViolationScreen> {
 
 
   @override
+
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+
     return GestureDetector(
       onHorizontalDragStart: (DragStartDetails details) {
         Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, child: VehiclesScreen()));
@@ -48,51 +53,55 @@ class _ViolationScreenState extends State<ViolationScreen> {
           ],
         ),
       ),
-            DataTable(
-                columnSpacing: 50,
-                dataRowHeight: 50,
-                columns: [
-                  DataColumn(label: Text('TYPE')),
-                  DataColumn(label: Text('VEH NO.')),
-                  DataColumn(label: Text('EXPIRES')),
-                  DataColumn(label: Text('NAME')),
-                ],
-                rows: [
-                  DataRow(cells: [
-                    DataCell(Icon(Icons.directions_car)),
-                    DataCell(Text('5557')),
-                    DataCell(Text('31-Dec-18')),
-                    DataCell(Text('Qwerty')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Icon(Icons.directions_car)),
-                    DataCell(Text('5557')),
-                    DataCell(Text('31-Dec-18')),
-                    DataCell(Text('Qwerty')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Icon(Icons.directions_car)),
-                    DataCell(Text('5557')),
-                    DataCell(Text('31-Dec-18')),
-                    DataCell(Text('Qwerty')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Icon(Icons.directions_car)),
-                    DataCell(Text('5557')),
-                    DataCell(Text('31-Dec-18')),
-                    DataCell(Text('Qwerty')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Icon(Icons.directions_car)),
-                    DataCell(Text('5557')),
-                    DataCell(Text('31-Dec-18')),
-                    DataCell(Text('Qwerty')),
-                  ]),
+            Container(
+              height: height * 0.35,
+              width: width,
+              child: DataTable(
+                  columnSpacing: width * 0.01,
+                  dataRowHeight: height * 0.083,
+                  columns: [
+                    DataColumn(label: Text('TYPE')),
+                    DataColumn(label: Text('VEH NO.')),
+                    DataColumn(label: Text('EXPIRES')),
+                    DataColumn(label: Text('NAME')),
+                  ],
+                  rows: [
+                    DataRow(cells: [
+                      DataCell(Icon(Icons.directions_car)),
+                      DataCell(Text('5557')),
+                      DataCell(Text('31-Dec-18')),
+                      DataCell(Text('Qwerty')),
+                    ]),
+                    DataRow(cells: [
+                      DataCell(Icon(Icons.directions_car)),
+                      DataCell(Text('5557')),
+                      DataCell(Text('31-Dec-18')),
+                      DataCell(Text('Qwerty')),
+                    ]),
+                    DataRow(cells: [
+                      DataCell(Icon(Icons.directions_car)),
+                      DataCell(Text('5557')),
+                      DataCell(Text('31-Dec-18')),
+                      DataCell(Text('Qwerty')),
+                    ]),
+                    DataRow(cells: [
+                      DataCell(Icon(Icons.directions_car)),
+                      DataCell(Text('5557')),
+                      DataCell(Text('31-Dec-18')),
+                      DataCell(Text('Qwerty')),
+                    ]),
+                    DataRow(cells: [
+                      DataCell(Icon(Icons.directions_car)),
+                      DataCell(Text('5557')),
+                      DataCell(Text('31-Dec-18')),
+                      DataCell(Text('Qwerty')),
+                    ]),
 
-                ]
+                  ]
+              ),
             ),
-            SizedBox(height: 80,),
-            CommonButton(buttonText: 'REPORT', colour: Colors.red)
+            SizedBox(height: 150,),
+            Container(child: CommonButton(buttonText: 'REPORT', colour: Colors.red))
           ],
         ),
         drawer: CommonDrawer(),

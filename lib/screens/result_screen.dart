@@ -6,71 +6,47 @@ import 'package:flutter/material.dart';
 import 'camera_screen.dart';
 import 'package:society_app/widgets/common_button.dart';
 import 'vehicles_screen.dart';
-import 'package:society_app/widgets/common_button.dart';
 
 
 class ResultScreen extends StatelessWidget {
 
    // File image;
-  // String? resultText;
+  String resultText;
+  // List<String> list;
   // Function? newPhoto;
   // ResultScreen(this.image);
 
+  ResultScreen({required this.resultText});
+
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(height: 70,),
-          // Image.file(image),
-          SizedBox(height: 50,),
-          // Text(resultText!, style: TextStyle(fontSize: 40),),
-          SizedBox(height: 50,),
+      body: Container(
 
-          Text('Is the numberplate correct?', style: TextStyle(fontSize: 25, color: Colors.grey)),
-          SizedBox(height: 50,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.red,
-                    padding: EdgeInsets.fromLTRB(70, 20, 70, 20),
-                  ),
-                  child: Text('No', style: TextStyle(color: Colors.white),),
-                  onPressed: () {
-                    // newPhoto!();
-                    Navigator.pushNamed(context, CameraScreen.id);
+        child: Column(
+          children: [
 
-                  }
-              ),
-              SizedBox(width: 20,),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.green,
-                    padding: EdgeInsets.fromLTRB(70, 20, 70, 20),
-                  ),
-                  child: Text('Yes', style: TextStyle(color: Colors.white),),
-                  onPressed: () {
-                  }
-              )
+            SizedBox(height: height * 0.15,),
+            // Image.file(image),
+            SizedBox(height: height * 0.107,),
+            Text(resultText, style: TextStyle(fontSize: 40),),
+            SizedBox(height: height * 0.107,),
 
-            ],
-          ),
-
-
-        ],
+            Text('Is the numberplate correct?', style: TextStyle(fontSize: width * 0.06, color: Colors.grey)),
+            SizedBox(height: height * 0.12,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CommonButton(buttonText: 'No', colour: Colors.red, onTap: () {Navigator.pop(context);},),
+                SizedBox(width: width * 0.1,),
+                CommonButton(buttonText: 'Yes', colour: Colors.green, onTap: () {Navigator.pushNamed(context, VehiclesScreen.id);},)
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-// ElevatedButton(
-// style: ElevatedButton.styleFrom(
-// padding: EdgeInsets.fromLTRB(60, 20, 60, 20),
-// ),
-// onPressed: () {
-// Navigator.push(context, MaterialPageRoute(builder: (context) {return VehiclesScreen();}));
-//
-// },
-// child: Text('Confirm', style: TextStyle(fontSize: 30),)
-// )
