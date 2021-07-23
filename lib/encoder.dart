@@ -68,7 +68,7 @@ class Encoder {
     List _letters = sentence.split('');
 
     for (String l in _letters) {
-      _encryptedString += ((_encode.containsKey(l)) ? _encode[l] : l)!;
+      _encryptedString +=          ((_encode.containsKey(l)) ? _encode[l] : l)!;
     }
 
     return _encryptedString;

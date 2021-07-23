@@ -10,7 +10,7 @@ import 'vehicles_screen.dart';
 
 class ResultScreen extends StatelessWidget {
 
-   // File image;
+  // File image;
   String resultText;
   // List<String> list;
   // Function? newPhoto;
